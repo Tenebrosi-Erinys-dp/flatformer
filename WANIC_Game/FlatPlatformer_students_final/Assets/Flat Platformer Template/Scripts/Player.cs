@@ -9,8 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
 
     public float WalkSpeed;
     public float JumpForce;
@@ -35,7 +34,6 @@ public class Player : MonoBehaviour
     public bool Active = true;
 
 
-
     public void DisablePlayer()
     {
         Active = false;
@@ -45,7 +43,7 @@ public class Player : MonoBehaviour
         Active = true;
     }
 
-    void Start()
+    void Start ()
     {
         _layerMask = LayerMask.GetMask("Default");
         rig = gameObject.GetComponent<Rigidbody2D>();
@@ -126,7 +124,7 @@ public class Player : MonoBehaviour
                 rig.AddForce(new Vector2(0, JumpForce));
                 _Legs.clip = _jump;
                 _Legs.Play();
-                audioSource.clip = sfxJump;
+                audioSource.clip = sfxJump; 
                 audioSource.Play();
                 _canJump = false;
                 _isJump = false;
@@ -143,4 +141,7 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, _GroundCast.position);
     }
+
+
+    
 }
